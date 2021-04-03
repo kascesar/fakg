@@ -1,0 +1,26 @@
+<annotation>
+	<folder>frames</folder>
+	<filename>Maik.jpeg</filename>
+	<path>/home/cesar/develop/community-pets-dataset/frames/Maik.jpeg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>2448</width>
+		<height>3264</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>maik</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>756</xmin>
+			<ymin>962</ymin>
+			<xmax>1808</xmax>
+			<ymax>3018</ymax>
+		</bndbox>
+	</object>
+</annotation>

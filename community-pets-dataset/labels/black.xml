@@ -1,0 +1,26 @@
+<annotation>
+	<folder>frames</folder>
+	<filename>black.jpg</filename>
+	<path>/home/cesar/develop/community-pets-dataset/frames/black.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3024</width>
+		<height>4032</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>black</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>162</xmin>
+			<ymin>1950</ymin>
+			<xmax>2584</xmax>
+			<ymax>3659</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,6 @@
+cv2
+numpy
+pandas
+tensorflow
+matplotlib
+python-magic

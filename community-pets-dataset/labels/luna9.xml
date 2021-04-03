@@ -1,0 +1,26 @@
+<annotation>
+	<folder>frames</folder>
+	<filename>luna9.jpg</filename>
+	<path>/home/cesar/develop/community-pets-dataset/frames/luna9.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3264</width>
+		<height>2448</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>luna</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1172</xmin>
+			<ymin>100</ymin>
+			<xmax>2341</xmax>
+			<ymax>1000</ymax>
+		</bndbox>
+	</object>
+</annotation>

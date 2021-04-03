@@ -1,0 +1,26 @@
+<annotation>
+	<folder>frames</folder>
+	<filename>violeta.JPG</filename>
+	<path>/home/cesar/develop/community-pets-dataset/frames/violeta.JPG</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1932</width>
+		<height>2576</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>violeta</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>945</xmin>
+			<ymin>1</ymin>
+			<xmax>1927</xmax>
+			<ymax>2576</ymax>
+		</bndbox>
+	</object>
+</annotation>
