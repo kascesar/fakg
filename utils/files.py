@@ -58,7 +58,7 @@ class FramesConstructor:
         -----------
 
         inds : integer or list of integer
-        '''
+           '''
         if isinstance(inds, int):
             frame_path = os.path.join(self.path2frames, self.frame_list[inds])
             return cv2.imread(frame_path)

@@ -4,6 +4,7 @@ from fakg.fakg_utils.fakg_files import FramesConstructor
 from numpy import array
 from numpy.random import choice, shuffle
 import os
+from typing import List, Tuple, Dict, Float, Int, Bool
 import tqdm
 from tensorflow.keras.utils import Sequence
 
@@ -110,17 +111,17 @@ class Vidcg(Sequence):
         : default True:
     '''
     def __init__(self,
-                 data_path,
-                 sparse_categorical=False,
-                 frame_size=(256, 256),
-                 random_steps=None,
+                 data_path: str = None,
+                 sparse_categorical: bool = False,
+                 frame_size: Tuple[int, int] = (256, 256),
+                 random_steps: Tuple[int] = None,
                  data_aug_pipe=None,
-                 strides=[1, 2, 3, 4],
+                 strides: List[int] = [1, 2, 3, 4],
                  steps_augmentation_random=False,
-                 color_mode='rgb',
-                 batch_size=1,
-                 window_size=10,
-                 to_train=True):
+                 color_mode: str = 'rgb',
+                 batch_size: int = 1,
+                 window_size: int = 10,
+                 to_train: bool = True):
         self.sparse_categorical = sparse_categorical
         self.data_path = data_path
         self.frame_size = frame_size
@@ -370,28 +371,28 @@ class Vidcg(Sequence):
             ex: [1, 2, 3, 4]
         '''
         if not self.steps_augmentation_random:
-            print('not steps_augmentation_random technique are used')
+            print('no steps_augmentation_random technique are used')
             return
         if self.random_steps is None:
             print('automatically setting the random steps equal to'
                   '{}'.format(self.strides))
             self.random_steps = self.strides
 
-        def set_random_steps(list, random_steps):
+        def set_random_steps(list_, random_steps):
             '''
             sum number randomly to a list
             '''
-            inds = range(len(list))
+            inds = range(len(list_))
             for i in inds:
-                old_val = list[i]
+                old_val = list_[i]
                 new_val = old_val + choice(random_steps)
-                list[i] = new_val
+                list_[i] = new_val
                 if not i == inds[-1]:
-                    list[i + 1] = new_val
+                    list_[i + 1] = new_val
                 if not i == inds[0]:
-                    if list[i] <= list[i - 1]:
-                        list[i] = new_val + 1
-            return list
+                    if list_[i] <= list_[i - 1]:
+                        list_[i] = new_val + 1
+            return list_
 
         def get_pack_frames(path):
             all_inds_frames = []
@@ -408,8 +409,8 @@ class Vidcg(Sequence):
                 # add the inds to tester for check if wee not make a same inds
                 # (due for randome nature for this task)
                 string_ind = ''
-                for i in frames_inds:
-                    string_ind += str(i)
+                for j in frames_inds:
+                    string_ind += str(j)
                 if string_ind not in tester:
                     all_inds_frames.append(frames_inds)
                     tester.add(string_ind)
@@ -462,8 +463,8 @@ class Vidcg(Sequence):
 
             if inds[-1] <= video_length - 1:
                 return True
-            else:
-                False
+
+            return False
 
         cap = FramesConstructor(video_path)
         video_length = cap.get_frames_count()

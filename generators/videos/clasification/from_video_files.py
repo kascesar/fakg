@@ -1,10 +1,14 @@
 import cv2
-from fakg.fakg_utils.fakg_img import togray, torgb
+from fakg.utils.img import togray, torgb
 from numpy import array
 from numpy.random import choice, shuffle
 import os
 import tqdm
 from tensorflow.keras.utils import Sequence
+# BUGDETECTES
+# 1- Non sparse ctegory dont work
+# 2- cuando se usa BZ > 1, no combina diferentes clases
+
 
 # TODO:
 # Video charging bases en inds of frames and example ........................ O
@@ -360,7 +364,9 @@ class Vidcg(Sequence):
                 examples.append(example)
         examples_random = self.add_random_steeps_examples(
                                                 random_steps=self.random_steps)
+        shuffle(examples)
         if self.steps_augmentation_random:
+            shuffle(examples_random)
             return examples + examples_random
         else:
             return examples
@@ -603,6 +609,8 @@ class Vidcg(Sequence):
             img = X[y, x]
             plt.tight_layout()
             ax.imshow(img)
+        if self.to_train:
+            fig.suptitle('Sample class : {}'.format(self.categories_by_inds[Y[0]]), fontsize=16)
         plt.show()
 
     def to_one_hot(self, i):
@@ -648,9 +656,9 @@ class Vidcg(Sequence):
             Y.append(category)
         if self.to_train:
             Y = self.y_make(Y)
-            return array(X), array(Y)
+            return array(X) / 255., array(Y)
         else:
-            return array(X)
+            return array(X) / 255
 
     def __len__(self):
         return len(self.batchs)
