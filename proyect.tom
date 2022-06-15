@@ -1,0 +1,3 @@
+[build-system]
+requires = ["python-opencv", "numpy", "pandas", "tensorflow", "matplotlib","python-magic", "ffmpeg-python"]
+build-backend = "setuptools.build_meta"
