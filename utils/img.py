@@ -111,3 +111,11 @@ def show_img(img):
     k = cv2.waitKey(0)
     if k == 27:         # wait for ESC key to exit
         cv2.destroyAllWindows()
+
+        
+def reshape_img(img: ndarray, new_shape=None):
+    if not new_shape:
+        return img
+    imgtest(img)
+    if new_shape:
+        return cv2.resize(img, dsize=new_shape)

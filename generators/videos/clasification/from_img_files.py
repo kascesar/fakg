@@ -1,10 +1,10 @@
 import cv2
-from fakg.fakg_utils.fakg_img import togray, torgb
-from fakg.fakg_utils.fakg_files import FramesConstructor
+from fakg.utils.img import togray, torgb
+from fakg.utils.files import FramesConstructor
 from numpy import array
 from numpy.random import choice, shuffle
 import os
-from typing import List, Tuple, Dict, Float, Int, Bool
+#from typing import List, Tuple, Dict, Float, Int, Bool
 import tqdm
 from tensorflow.keras.utils import Sequence
 
@@ -113,10 +113,10 @@ class Vidcg(Sequence):
     def __init__(self,
                  data_path: str = None,
                  sparse_categorical: bool = False,
-                 frame_size: Tuple[int, int] = (256, 256),
-                 random_steps: Tuple[int] = None,
+                 frame_size = (256, 256),
+                 random_steps = None,
                  data_aug_pipe=None,
-                 strides: List[int] = [1, 2, 3, 4],
+                 strides = [1, 2, 3, 4],
                  steps_augmentation_random=False,
                  color_mode: str = 'rgb',
                  batch_size: int = 1,
@@ -488,7 +488,7 @@ class Vidcg(Sequence):
                     frame = togray(frame)
             else:
                 raise Exception('cant load frame from {}'.format(video_path))
-            frames.append(frame)
+            frames.append(frame / 255.)
 
         if len(frames) == self.window_size:
             return frames

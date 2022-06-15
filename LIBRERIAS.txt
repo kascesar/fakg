@@ -4,3 +4,4 @@ pandas
 tensorflow
 matplotlib
 python-magic
+ffmpeg-python
