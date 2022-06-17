@@ -139,7 +139,7 @@ class ImagePipe:
                 if self.structure['type'] == 'video':
                     y = []
                     for img in x:
-                        img = layer.trans(img)
+                        img = layer(img)
                         y.append(img)
                 elif self.structure['type'] == 'image':
                     y = self.trans(x)

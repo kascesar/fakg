@@ -65,13 +65,13 @@ from fakg.augmenters.image import (
                                    CutOut,          # 7
                                    # Color&Noise&filtering Augmenters
                                    KMeansCC,           # 1
-                                   BrightnessJitter,   # 2
+                                   # BrightnessJitter,   # 2  BUUUUGED
                                    SaturationJitter,   # 3
-                                   ContrastJitter,     # 4
+                                   # ContrastJitter,     # 4 HAS A BUGGGGGG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                    GaussianFlitering,  # 5
                                    )
 
-from fakg.augmenters.new_pipe import ImagePipe
+from fakg.augmenters.pipe import ImagePipe
 
 __all__ = [
            'Vflip',
@@ -85,7 +85,7 @@ __all__ = [
            'KMeansCC',
            'BrightnessJitter',
            'SaturationJitter',
-           'ContrastJitter',
+           #'ContrastJitter',
            'GaussianFlitering',
            'ImagePipe',
            ]
