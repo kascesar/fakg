@@ -1,8 +1,9 @@
 import os
 import cv2
 import numpy as np
-from magic import from_file
+#from magic import from_file
 import re
+from fakg.utils.img import load_img
 
 
 class FramesConstructor:
@@ -162,10 +163,14 @@ def make_complete_paths(path, list_files_and_dirs):
     return complete_paths
 
 
+#def get_im_wh(img_path: str):
+#    '''
+#    Get image w,h with out charge it
+#'''
+#    inf = from_file(img_path)
+#    w, h = list(map(int, re.findall(r'(\d+)x(\d+)', inf)[-1]))
+#    return w, h
+
 def get_im_wh(img_path: str):
-    '''
-    Get image w,h with out charge it
-    '''
-    inf = from_file(img_path)
-    w, h = list(map(int, re.findall(r'(\d+)x(\d+)', inf)[-1]))
-    return w, h
+    ''' '''
+    return load_img(img_path).shape[:2]
