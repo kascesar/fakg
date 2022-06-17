@@ -66,6 +66,6 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from fakg.dataset.dataset import DataSet
 from fakg.generators.object_detection import YoloV2Generator
-from fakg.generators.videos.clasification.from_img_files import Vidcg as VideoGenerator_FromFrames
+from fakg.generators.videos.clasification.from_img_files import Vidcg as VideoCLFGenerator_FromFrames
 
 __all__ = ['DataSet', 'YoloV2Generator', 'VideoGenerator_FromFrames']

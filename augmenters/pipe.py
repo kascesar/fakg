@@ -135,7 +135,7 @@ class ImagePipe:
         x = data
         self.test(data)
         for layer in self.structure['pipe']:
-            if random.rand() <= float(layer.frec):
+            if layer.frec >= random.random():
                 if self.structure['type'] == 'video':
                     y = []
                     for img in x:
